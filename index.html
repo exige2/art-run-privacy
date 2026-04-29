@@ -267,9 +267,6 @@
       margin: 40px 0;
     }
 
-    /* ── Language toggle ── */
-    [data-lang="en"] { display: none; }
-
     /* ── Responsive ── */
     @media (max-width: 600px) {
       .section-card { padding: 20px; }
@@ -297,8 +294,8 @@
   <h1 data-lang="ja">プライバシーポリシー</h1>
   <h1 data-lang="en">Privacy Policy</h1>
   <p class="hero-sub">ArtRun - GPS Art Running App</p>
-  <div class="updated-badge" data-lang="ja">最終更新日：2026年5月1日</div>
-  <div class="updated-badge" data-lang="en">Last Updated: May 1, 2025</div>
+  <div class="updated-badge" data-lang="ja">最終更新日：2025年1月1日</div>
+  <div class="updated-badge" data-lang="en">Last Updated: January 1, 2025</div>
 </section>
 
 <!-- TOC -->
@@ -331,7 +328,7 @@
       <span data-lang="en">Introduction</span>
     </div>
     <div class="section-body">
-      <p data-lang="ja">ArtRun（以下「本アプリ」）は、exige2 が開発・提供するGPS軌跡でアートを描くランニングアプリです。本プライバシーポリシーは、本アプリがどのような情報を収集し、どのように利用するかを説明します。本アプリをご利用いただくことで、本ポリシーに同意したものとみなします。</p>
+      <p data-lang="ja">ArtRun（以下「本アプリ」）は、exige2が開発・提供するGPS軌跡でアートを描くランニングアプリです。本プライバシーポリシーは、本アプリがどのような情報を収集し、どのように利用するかを説明します。本アプリをご利用いただくことで、本ポリシーに同意したものとみなします。</p>
       <p data-lang="en">ArtRun (the "App") is a GPS art running application developed by exige2. This Privacy Policy explains what information the App collects and how it is used. By using the App, you agree to the terms described here.</p>
     </div>
   </div>
@@ -547,25 +544,41 @@
 <footer>
   <div>
     <div class="footer-brand">ArtRun</div>
-    <div class="footer-note">© 2026 exige2. All rights reserved.</div>
+    <div class="footer-note">© 2025 exige2. All rights reserved.</div>
   </div>
   <div class="footer-note" data-lang="ja">このページは GitHub Pages でホストされています</div>
   <div class="footer-note" data-lang="en">Hosted on GitHub Pages</div>
 </footer>
 
 <script>
+  // 要素タグに応じた適切な display 値を返す
+  function defaultDisplay(el) {
+    const tag = el.tagName.toLowerCase();
+    if (tag === 'td' || tag === 'th') return 'table-cell';
+    if (tag === 'tr')                 return 'table-row';
+    if (tag === 'span')               return 'inline';
+    if (tag === 'a')                  return 'inline';
+    return 'block'; // div, p, h1, li など
+  }
+
   function setLang(lang) {
     document.querySelectorAll('[data-lang]').forEach(el => {
-      el.style.display = el.dataset.lang === lang ? '' : 'none';
+      if (el.dataset.lang === lang) {
+        el.style.display = defaultDisplay(el);
+      } else {
+        el.style.display = 'none';
+      }
     });
     document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     document.documentElement.lang = lang;
   }
 
-  // 初期状態: ブラウザ言語に合わせる
-  const browserLang = navigator.language.startsWith('ja') ? 'ja' : 'en';
-  setLang(browserLang);
+  // 初期状態：ページ読み込み直後に全 data-lang 要素を隠してからブラウザ言語で表示
+  document.addEventListener('DOMContentLoaded', () => {
+    const browserLang = navigator.language.startsWith('ja') ? 'ja' : 'en';
+    setLang(browserLang);
+  });
 </script>
 </body>
 </html>
