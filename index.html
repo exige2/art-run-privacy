@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ArtRun Privacy Policy - GPS Art Running App">
+  <title>Privacy Policy | ArtRun</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #060A14;
+      --surface:  #0A0F1E;
+      --card:     #0D1428;
+      --border:   #1A2848;
+      --accent:   #39FF14;
+      --cyan:     #00D4FF;
+      --purple:   #7B61FF;
+      --muted:    #4A5F8A;
+      --dim:      #8A9FC0;
+      --text:     #DCE8FF;
+      --white:    #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── Background grid ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(57,255,20,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57,255,20,.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(6,10,20,.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 max(24px, calc((100vw - 900px) / 2));
+    }
+    .header-inner {
+      display: flex; align-items: center; gap: 12px;
+      height: 64px;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 22px; font-weight: 800;
+      background: linear-gradient(120deg, var(--accent), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+      letter-spacing: .5px;
+    }
+    .logo-sub {
+      font-size: 11px; color: var(--muted);
+      letter-spacing: .12em;
+    }
+    .lang-btns {
+      margin-left: auto;
+      display: flex; gap: 6px;
+    }
+    .lang-btn {
+      padding: 4px 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: transparent;
+      color: var(--dim);
+      font-size: 11px; font-weight: 700;
+      cursor: pointer;
+      transition: all .15s;
+      font-family: 'Space Mono', monospace;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(57,255,20,.06);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; z-index: 1;
+      padding: 80px max(24px, calc((100vw - 900px) / 2)) 48px;
+      text-align: center;
+    }
+    .hero-icon {
+      font-size: 52px;
+      display: block; margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 6vw, 48px);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--cyan) 60%, var(--purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      letter-spacing: -.5px;
+    }
+    .hero-sub {
+      font-size: 13px; color: var(--dim);
+      font-family: 'Space Mono', monospace;
+    }
+    .updated-badge {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 4px 14px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 11px; color: var(--muted);
+      font-family: 'Space Mono', monospace;
+    }
+
+    /* ── TOC ── */
+    .toc-wrap {
+      position: relative; z-index: 1;
+      padding: 0 max(24px, calc((100vw - 900px) / 2)) 40px;
+    }
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+    .toc-title {
+      font-size: 11px; font-weight: 700;
+      color: var(--muted); letter-spacing: 1.2em;
+      text-transform: uppercase; margin-bottom: 14px;
+    }
+    .toc ol {
+      list-style: none;
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .toc ol li a {
+      display: block;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 12px; color: var(--dim);
+      text-decoration: none;
+      transition: all .15s;
+    }
+    .toc ol li a:hover {
+      border-color: var(--cyan); color: var(--cyan);
+      background: rgba(0,212,255,.06);
+    }
+
+    /* ── Main content ── */
+    main {
+      position: relative; z-index: 1;
+      padding: 0 max(24px, calc((100vw - 900px) / 2)) 80px;
+    }
+
+    /* ── Section card ── */
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 20px;
+      transition: border-color .2s;
+    }
+    .section-card:hover { border-color: rgba(57,255,20,.25); }
+
+    .section-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px; color: var(--muted);
+      letter-spacing: .1em; margin-bottom: 6px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-title .icon { font-size: 20px; }
+
+    .section-body { font-size: 14px; color: var(--text); }
+
+    /* ── Subsections ── */
+    .sub-block {
+      background: rgba(6,10,20,.5);
+      border-left: 2px solid var(--cyan);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 14px 0;
+    }
+    .sub-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px; font-weight: 700;
+      color: var(--cyan); margin-bottom: 8px;
+      letter-spacing: .05em;
+    }
+    .sub-body { font-size: 13px; color: var(--dim); line-height: 1.7; }
+
+    /* ── Links ── */
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Table ── */
+    table {
+      width: 100%; border-collapse: collapse;
+      margin: 16px 0; font-size: 13px;
+    }
+    th {
+      background: rgba(57,255,20,.06);
+      color: var(--accent); font-family: 'Space Mono', monospace;
+      font-size: 10px; letter-spacing: .08em;
+      padding: 10px 14px; text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 10px 14px; color: var(--text);
+      border-bottom: 1px solid rgba(26,40,72,.6);
+    }
+    tr:last-child td { border-bottom: none; }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px; border-radius: 10px;
+      font-size: 10px; font-family: 'Space Mono', monospace;
+    }
+    .badge-yes  { background: rgba(57,255,20,.12); color: var(--accent); border: 1px solid rgba(57,255,20,.3); }
+    .badge-no   { background: rgba(74,95,138,.15); color: var(--muted);  border: 1px solid var(--border); }
+
+    /* ── Footer ── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 32px max(24px, calc((100vw - 900px) / 2));
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-brand {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px; font-weight: 800;
+      background: linear-gradient(120deg, var(--accent), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .footer-note { font-size: 11px; color: var(--muted); font-family: 'Space Mono', monospace; }
+
+    /* ── Glow line ── */
+    .glow-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--cyan), transparent);
+      margin: 40px 0;
+    }
+
+    /* ── Language toggle ── */
+    [data-lang="en"] { display: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .section-card { padding: 20px; }
+      .hero { padding: 48px 20px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">ArtRun</a>
+    <span class="logo-sub">お絵描きランニング</span>
+    <div class="lang-btns">
+      <button class="lang-btn active" onclick="setLang('ja')" id="btn-ja">JA</button>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <span class="hero-icon">🔐</span>
+  <h1 data-lang="ja">プライバシーポリシー</h1>
+  <h1 data-lang="en">Privacy Policy</h1>
+  <p class="hero-sub">ArtRun - GPS Art Running App</p>
+  <div class="updated-badge" data-lang="ja">最終更新日：2025年1月1日</div>
+  <div class="updated-badge" data-lang="en">Last Updated: January 1, 2025</div>
+</section>
+
+<!-- TOC -->
+<div class="toc-wrap">
+  <div class="toc">
+    <div class="toc-title" data-lang="ja">目 次</div>
+    <div class="toc-title" data-lang="en">Contents</div>
+    <ol>
+      <li><a href="#s1" data-lang="ja">はじめに</a><a href="#s1" data-lang="en">Introduction</a></li>
+      <li><a href="#s2" data-lang="ja">収集する情報</a><a href="#s2" data-lang="en">Data Collected</a></li>
+      <li><a href="#s3" data-lang="ja">利用目的</a><a href="#s3" data-lang="en">Use of Data</a></li>
+      <li><a href="#s4" data-lang="ja">第三者サービス</a><a href="#s4" data-lang="en">Third Parties</a></li>
+      <li><a href="#s5" data-lang="ja">データの保管</a><a href="#s5" data-lang="en">Data Retention</a></li>
+      <li><a href="#s6" data-lang="ja">子供のプライバシー</a><a href="#s6" data-lang="en">Children</a></li>
+      <li><a href="#s7" data-lang="ja">ポリシーの変更</a><a href="#s7" data-lang="en">Changes</a></li>
+      <li><a href="#s8" data-lang="ja">お問い合わせ</a><a href="#s8" data-lang="en">Contact</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- Main -->
+<main>
+
+  <!-- S1 -->
+  <div class="section-card" id="s1">
+    <div class="section-num">01</div>
+    <div class="section-title">
+      <span class="icon">🏃</span>
+      <span data-lang="ja">はじめに</span>
+      <span data-lang="en">Introduction</span>
+    </div>
+    <div class="section-body">
+      <p data-lang="ja">ArtRun（以下「本アプリ」）は、exige2が開発・提供するGPS軌跡でアートを描くランニングアプリです。本プライバシーポリシーは、本アプリがどのような情報を収集し、どのように利用するかを説明します。本アプリをご利用いただくことで、本ポリシーに同意したものとみなします。</p>
+      <p data-lang="en">ArtRun (the "App") is a GPS art running application developed by exige2. This Privacy Policy explains what information the App collects and how it is used. By using the App, you agree to the terms described here.</p>
+    </div>
+  </div>
+
+  <!-- S2 -->
+  <div class="section-card" id="s2">
+    <div class="section-num">02</div>
+    <div class="section-title">
+      <span class="icon">📍</span>
+      <span data-lang="ja">収集する情報</span>
+      <span data-lang="en">Information We Collect</span>
+    </div>
+    <div class="section-body">
+
+      <table>
+        <thead>
+          <tr>
+            <th data-lang="ja">データ種別</th><th data-lang="en">Data Type</th>
+            <th data-lang="ja">収集</th><th data-lang="en">Collected</th>
+            <th data-lang="ja">サーバー送信</th><th data-lang="en">Uploaded</th>
+            <th data-lang="ja">目的</th><th data-lang="en">Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-lang="ja">正確な位置情報（GPS）</td><td data-lang="en">Precise Location (GPS)</td>
+            <td><span class="badge badge-yes">✓ Yes</span></td>
+            <td data-lang="ja"><span class="badge badge-no">端末内のみ</span></td>
+            <td data-lang="en"><span class="badge badge-no">Device only</span></td>
+            <td data-lang="ja">ルート生成・軌跡記録</td><td data-lang="en">Route generation & tracking</td>
+          </tr>
+          <tr>
+            <td data-lang="ja">広告識別子（IDFA/GAID）</td><td data-lang="en">Ad Identifier (IDFA/GAID)</td>
+            <td><span class="badge badge-yes">✓ Yes</span></td>
+            <td data-lang="ja"><span class="badge badge-yes">AdMob</span></td>
+            <td data-lang="en"><span class="badge badge-yes">AdMob</span></td>
+            <td data-lang="ja">広告配信（無課金ユーザーのみ）</td><td data-lang="en">Ad delivery (free users only)</td>
+          </tr>
+          <tr>
+            <td data-lang="ja">ルート・ランニング記録</td><td data-lang="en">Route & Run Records</td>
+            <td><span class="badge badge-yes">✓ Yes</span></td>
+            <td data-lang="ja"><span class="badge badge-no">端末内のみ</span></td>
+            <td data-lang="en"><span class="badge badge-no">Device only</span></td>
+            <td data-lang="ja">履歴管理・共有</td><td data-lang="en">History & sharing</td>
+          </tr>
+          <tr>
+            <td data-lang="ja">課金情報</td><td data-lang="en">Payment Information</td>
+            <td><span class="badge badge-no">✗ No</span></td>
+            <td>—</td>
+            <td data-lang="ja">ストア経由（本アプリは取得しない）</td><td data-lang="en">Via store (not accessed by App)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="sub-block">
+        <div class="sub-title" data-lang="ja">⚠️ 位置情報について</div>
+        <div class="sub-title" data-lang="en">⚠️ About Location Data</div>
+        <div class="sub-body">
+          <span data-lang="ja">ランニング中に画面をオフにしても軌跡を記録し続けるため、バックグラウンドでの位置情報アクセスを使用します。この情報は端末内にのみ保存され、外部サーバーへの送信は行いません。</span>
+          <span data-lang="en">The App uses background location access to continue recording your track even when the screen is off. This data is stored only on your device and is never sent to external servers.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S3 -->
+  <div class="section-card" id="s3">
+    <div class="section-num">03</div>
+    <div class="section-title">
+      <span class="icon">🎯</span>
+      <span data-lang="ja">情報の利用目的</span>
+      <span data-lang="en">How We Use Your Information</span>
+    </div>
+    <div class="section-body">
+      <div data-lang="ja">
+        <p>収集した情報は、以下の目的のみに使用します：</p>
+        <ul style="margin: 14px 0 0 18px; display: flex; flex-direction: column; gap: 8px;">
+          <li>ランニングルートの生成・道路スナップ（Google Directions API）</li>
+          <li>ランニング中のGPS軌跡リアルタイム表示</li>
+          <li>走行距離・ペース・タイムの計算</li>
+          <li>ランニング記録の保存・履歴管理</li>
+          <li>ターゲット広告の配信（無料ユーザーのみ、プレミアム購入者は除外）</li>
+          <li>アプリの改善・不具合の修正</li>
+        </ul>
+      </div>
+      <div data-lang="en">
+        <p>Collected information is used solely for:</p>
+        <ul style="margin: 14px 0 0 18px; display: flex; flex-direction: column; gap: 8px;">
+          <li>Route generation and road snapping (Google Directions API)</li>
+          <li>Real-time GPS tracking during runs</li>
+          <li>Calculating distance, pace, and time</li>
+          <li>Saving and managing run records</li>
+          <li>Targeted ad delivery (free users only, excluded for Premium)</li>
+          <li>App improvement and bug fixes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- S4 -->
+  <div class="section-card" id="s4">
+    <div class="section-num">04</div>
+    <div class="section-title">
+      <span class="icon">🔗</span>
+      <span data-lang="ja">第三者サービス</span>
+      <span data-lang="en">Third-Party Services</span>
+    </div>
+    <div class="section-body">
+
+      <div class="sub-block">
+        <div class="sub-title">Google Maps Platform</div>
+        <div class="sub-body">
+          <span data-lang="ja">地図表示・ルート検索に使用。ルート計算リクエスト時に経由点の座標が送信されます。</span>
+          <span data-lang="en">Used for map display and route generation. Waypoint coordinates are sent for route calculation.</span>
+          <br>
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>
+        </div>
+      </div>
+
+      <div class="sub-block">
+        <div class="sub-title">Google AdMob</div>
+        <div class="sub-body">
+          <span data-lang="ja">無料ユーザー向けの広告配信に使用。プレミアム購入後は無効化されます。<br>
+          オプトアウト：Android「広告のパーソナライズをオプトアウト」/ iOS「広告のトラッキングを制限」</span>
+          <span data-lang="en">Used for ad delivery to free users. Disabled after Premium purchase.<br>
+          Opt-out: Android "Opt out of Ads Personalization" / iOS "Limit Ad Tracking"</span>
+          <br>
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>
+        </div>
+      </div>
+
+      <div class="sub-block">
+        <div class="sub-title">Google Play / App Store</div>
+        <div class="sub-body">
+          <span data-lang="ja">アプリ内課金の処理に使用。本アプリは決済情報に直接アクセスしません。</span>
+          <span data-lang="en">Used for in-app purchase processing. The App does not directly access payment information.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5 -->
+  <div class="section-card" id="s5">
+    <div class="section-num">05</div>
+    <div class="section-title">
+      <span class="icon">💾</span>
+      <span data-lang="ja">データの保管と削除</span>
+      <span data-lang="en">Data Retention and Deletion</span>
+    </div>
+    <div class="section-body">
+      <span data-lang="ja">
+        <p>• ランニング記録・ルートデータは端末の内部ストレージのみに保存されます</p>
+        <p>• クラウドへの自動バックアップは行いません</p>
+        <p>• アプリをアンインストールすると、保存されたすべてのデータが削除されます</p>
+        <p>• アプリ内の「設定 → データを消去」からも削除できます</p>
+      </span>
+      <span data-lang="en">
+        <p>• Run records and route data are stored only in the device's local storage</p>
+        <p>• No automatic cloud backup is performed</p>
+        <p>• All stored data is deleted when the App is uninstalled</p>
+        <p>• You can also delete via Settings → Clear Data within the App</p>
+      </span>
+    </div>
+  </div>
+
+  <!-- S6 -->
+  <div class="section-card" id="s6">
+    <div class="section-num">06</div>
+    <div class="section-title">
+      <span class="icon">👶</span>
+      <span data-lang="ja">子供のプライバシー</span>
+      <span data-lang="en">Children's Privacy</span>
+    </div>
+    <div class="section-body">
+      <span data-lang="ja">本アプリは13歳未満の児童を対象としていません。13歳未満の方の個人情報を意図的に収集することはありません。13歳未満のお子様の情報を誤って収集したことが判明した場合は、速やかに削除します。</span>
+      <span data-lang="en">This App is not directed to children under 13. We do not knowingly collect personal information from children under 13. If we discover that information from a child under 13 has been inadvertently collected, we will delete it promptly.</span>
+    </div>
+  </div>
+
+  <!-- S7 -->
+  <div class="section-card" id="s7">
+    <div class="section-num">07</div>
+    <div class="section-title">
+      <span class="icon">📝</span>
+      <span data-lang="ja">プライバシーポリシーの変更</span>
+      <span data-lang="en">Changes to This Policy</span>
+    </div>
+    <div class="section-body">
+      <span data-lang="ja">本ポリシーは予告なく変更する場合があります。重要な変更がある場合は、アプリのアップデートノートを通じてお知らせします。変更後も引き続き本アプリをご利用いただく場合、変更後のポリシーに同意したものとみなします。</span>
+      <span data-lang="en">We may update this policy at any time without prior notice. Material changes will be communicated through app update notes. Continued use of the App after changes constitutes acceptance of the updated policy.</span>
+    </div>
+  </div>
+
+  <!-- S8 -->
+  <div class="section-card" id="s8">
+    <div class="section-num">08</div>
+    <div class="section-title">
+      <span class="icon">✉️</span>
+      <span data-lang="ja">お問い合わせ</span>
+      <span data-lang="en">Contact</span>
+    </div>
+    <div class="section-body">
+      <span data-lang="ja">本プライバシーポリシーに関するご質問・ご意見は、各ストアのアプリページに記載のサポートリンクよりお問い合わせください。</span>
+      <span data-lang="en">For questions or feedback about this Privacy Policy, please contact us via the support link on the App's store page.</span>
+      <br><br>
+      <strong>GitHub:</strong>
+      <a href="https://github.com/exige2/art_run" target="_blank" rel="noopener">
+        github.com/exige2/art_run
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<div class="glow-line" style="margin: 0 max(24px, calc((100vw - 900px) / 2));"></div>
+
+<!-- Footer -->
+<footer>
+  <div>
+    <div class="footer-brand">ArtRun</div>
+    <div class="footer-note">© 2025 exige2. All rights reserved.</div>
+  </div>
+  <div class="footer-note" data-lang="ja">このページは GitHub Pages でホストされています</div>
+  <div class="footer-note" data-lang="en">Hosted on GitHub Pages</div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = el.dataset.lang === lang ? '' : 'none';
+    });
+    document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+  }
+
+  // 初期状態: ブラウザ言語に合わせる
+  const browserLang = navigator.language.startsWith('ja') ? 'ja' : 'en';
+  setLang(browserLang);
+</script>
+</body>
+</html>
